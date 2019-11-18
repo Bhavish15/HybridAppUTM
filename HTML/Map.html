@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../JS/leaflet.css" />
+  <script src="../JS/leaflet.js"></script>
+  
+  <script src="http://cdn-geoweb.s3.amazonaws.com/esri-leaflet/1.0.0-rc.2/esri-leaflet.js"></script>
+<link rel="stylesheet" href="../JS/jquery.mobile-1.4.5.min.css" />
+<script src="../JS/jquery.js"></script>
+<script src="../JS/jquery.mobile-1.4.5.min.js"></script>
+<style type="text/css">
+	#map{
+		width: 100%;
+		height: 500px;
+	}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+			$("linkpg").click(function(){		
+			});
+		navigator.geolocation.getCurrentPosition(userLocated,
+locationError); 
+function userLocated(position) {
+var latitude = position.coords.latitude; 
+var longitude = position.coords.longitude; 
+var timeOfLocation = position.timestamp;
+
+ var map = L.map('map').setView([latitude, longitude], 17);
+ var marker = L.marker([latitude, longitude], { title: "My marker" }).addTo(map);
+ 
+  
+   var polygon = L.polygon([
+  [-20.177516,57.466722],
+  [-20.177276,57.469018],
+  [-20.176490,57.469047],
+  [-20.176511, 57.466676]
+  
+  ]).addTo(map);
+  polygon.bindPopup("You are on the UTM Campus");
+ 
+ 
+   var circle = L.circle([-20.177478,57.469522], {
+   color: 'red',                                                                                                           
+   fillColor: '#f03',
+   fillOpacity: 0.5,                                                                                                       
+   radius: 50
+  }).addTo(map);
+  circle.bindPopup("You are around the BPML Building").openPopup();
+ 
+  var marker=L.marker([-20.177391, 57.467551]).addTo(map);
+ marker.bindPopup("SITE  Building is here!").openPopup();
+ 
+ var marker=L.marker([-20.177477, 57.467282]).addTo(map);
+  marker.bindPopup("Finance is situated here!").openPopup();
+  
+    var marker=L.marker([-20.176889, 57.467520]).addTo(map);
+ marker.bindPopup("Canteen is situated here!").openPopup();
+  
+    var marker=L.marker([-20.176924, 57.467528]).addTo(map);
+  marker.bindPopup("Library is situated here!").openPopup();
+  
+    var marker=L.marker([-20.177013, 57.467095]).addTo(map);
+  marker.bindPopup("Student affairs is situated here!").openPopup();
+  
+    var marker=L.marker([-20.176789, 57.467036]).addTo(map);
+ marker.bindPopup("SBMF building is situated here!").openPopup();
+  
+    var marker=L.marker([-20.176470, 57.467417]).addTo(map);
+  marker.bindPopup("Lecturer's room  is situated here!").openPopup();
+  
+    var marker=L.marker([-20.176490, 57.467638]).addTo(map);
+  marker.bindPopup("SSDT Building is situated here!").openPopup();
+  
+    var marker=L.marker([-20.177477, 57.467767]).addTo(map);
+ marker.bindPopup("Common room is situated here!").openPopup();
+ 
+ 
+ 
+  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+  var searchControl = new L.esri.Controls.Geosearch().addTo(map);
+  var results = new L.LayerGroup().addTo(map);
+  searchControl.on('results', function(data){
+    results.clearLayers();
+    for (var i = data.results.length - 1; i >= 0; i--) {
+      results.addLayer(L.marker(data.results[i].latlng));
+    }
+  });
+}
+function locationError(error) {
+alert(error.code); 
+}
+	});
+</script>
+</head>
+<body>
+	<script src="http://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.js"></script>
+<link rel="stylesheet" type="text/css" href="http://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.css">
+
+<div data-role="page" id="pagehome">
+	<div data-role="header">
+		<h1>Search location</h1>
+	</div>
+	
+	<div data-role="navbar">
+	<ul>
+	<li><a href="../index.html" class="ui-btn ui-btn-icon-top ui-icon-home">Home</a></li>
+		<li><a href="#pagehome" class="ui-btn ui-btn-icon-top ui-icon-home">MyLocation/Search for Location</a></li>
+		<li><a  id="linkpg"  class="ui-btn ui-btn-icon-top ui-icon-info">Nearby Location</a></li>
+	</ul>
+	</div>
+	
+	<div role="main" class="ui-content">
+		<div id="map"></div>
+	</div>
+	<div data-role="footer">
+  			<h4>Leaflet Tutorials</h4>
+  			<p><center>UTM App-Copyright 2018</center></p>
+
+  		</div>
+
+  </div>
+	
+</div>
+
+</body>
+</html>

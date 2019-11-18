@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>UTM</title>
+
+		<link rel="stylesheet" href="../CSS/jquery.mobile-1.4.5.css"/>
+
+		<script type="text/javascript" src="../JS/jquery.js"></script>
+      
+		<script type="text/javascript" src="../JS/jquery.mobile-1.4.5.js"></script>
+
+		<script type="text/javascript" src="../JS/databaseHandler.js"></script> 
+
+		<script type="text/javascript" src="../JS/AddUserHandler.js"></script>  
+
+		<script type="text/javascript" src="../JS/index.js"></script> 
+      <link rel="stylesheet" type="text/css" href="../css/style.css"/> 
+	  
+     
+		
+    </head>
+
+    <body>
+	
+		<div data-role="page" id="Home">
+
+      <div data-role="header">
+        
+         <h1>
+          <div class="typo">
+          <div class="animate-flicker">
+              
+           <h3>UTM App</h3>   
+              <img class="logo" src="../UTM.png">
+          
+            </div>
+            </div>
+			 <h4>Admin</h4>
+         </h1>
+        <a href="#menuPanel" class="ui-btn ui-btn-inline ui-icon ui-btn-icon-left ui-icon-bars">Logout</a>
+
+        
+
+          <!-- Menu -->
+
+           <div data-role="navbar" data-iconpos="bottom" data-theme="b"> 
+            <!-- Using unordered list to create nav bar.
+               Using data-iconpos to indicate where we want the icon to be displayed -->
+
+              <ul>
+
+                <li><a href="#" rel="external" data-icon="home">News and Events</a></li> 
+                <li><a href="#" rel="external" data-icon="edit">Feedback</a></li>
+				 
+
+              </ul>
+            
+            </div>
+
+      </div>
+
+ 
+
+  		
+     <!-- Search Panel structure --> 
+		
+
+  	
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
+  	  <div data-role="main" class=" ui-content ui-responsive">
+        
+        <form method="post">
+
+              <label for="ebent"><b>Event Type:</b></label>
+              <input type="text" name="fname" id="fname" data-clear-btn="true" required="true">
+
+			  <label for="Descr"><b>Event Description:</b></label>
+              <textarea rows="5" cols="50" name="Descr" id="Descr">Enter text here...</textarea>
+
+             
+      
+        </form>    
+		<input type="submit" value="Add Event" onclick=""/>
+
+       
+
+        <a href="#" class="ui-btn ui-btn-inline ui-btn-b ui-btn-corner-all ui" data-type="reset">Cancel</a>
+
+      </div>
+    	
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
+	<br>
+	<br>
+  		<div data-role="footer">
+  			
+  			<p><center>UTM App-Copyright 2019</center></p>
+
+  		</div>
+
+  	</div> <!-- End of homepage-->
+
+      
+    </body>
+</html>
